@@ -1,12 +1,44 @@
 {
-  "PORYPHONE": {
-    "TITLE": "Poryphone",
+  "PQC": {
+    "TITLE": "Quick Combat",
     "SETTINGS": {
       "DEBUG.NAME": "Debug mode",
       "DEBUG.HINT": "Activate debug mode for developers."
     },
-    "BAR": {
-      "TITLE": "PoryphoneBar"
-    }
+
+    "TypeNone": "-",
+    "TypeNormal": "Normal",
+    "TypeBug": "Bug",
+    "TypeDark": "Dark",
+    "TypeDragon": "Dragon",
+    "TypeElectric": "Electric",
+    "TypeFairy": "Fairy",
+    "TypeFighting": "Fighting",
+    "TypeFire": "Fire",
+    "TypeFlying": "Flying",
+    "TypeGhost": "Ghost",
+    "TypeGrass": "Grass",
+    "TypeGround": "Ground",
+    "TypeIce": "Ice",
+    "TypePoison": "Poison",
+    "TypePsychic": "Psychic",
+    "TypeRock": "Rock",
+    "TypeSteel": "Steel",
+    "TypeWater": "Water",
+
+    "TargetFoe": "Foe",
+    "TargetRandomFoe": "Random Foe",
+    "TargetAllFoes": "All Foes",
+    "TargetUser": "User",
+    "TargetAlly": "One Ally",
+    "TargetUserAndAllies": "User and Allies",
+    "TargetArea": "Area",
+    "TargetBattlefield": "Battlefield",
+    "TargetBattlefieldFoes": "Battlefield (Foes)",
+    "TargetBattlefieldAndArea": "Battlefield and Area",
+
+    "MoveCategoryPhysical": "Physical",
+    "MoveCategorySpecial": "Special",
+    "MoveCategorySupport": "Support"
   }
 }

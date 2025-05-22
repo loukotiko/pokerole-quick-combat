@@ -1,6 +1,6 @@
 {
-  "id": "poryphone",
-  "title": "Poryphone",
+  "id": "pokerole-quick-combat",
+  "title": "Pokérole Quick Combat",
   "version": "#{VERSION}#",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
@@ -15,12 +15,8 @@
       "flags": {}
     }
   ],
-  "esmodules": ["scripts/poryphone.mjs"],
-  "styles": [
-    "styles/poryphone.css",
-    "styles/poryphone-bar.css",
-    "styles/poryphone-dialog.css"
-  ],
+  "esmodules": ["scripts/pqc.mjs"],
+  "styles": ["styles/pqc.css"],
   "languages": [
     {
       "lang": "en",

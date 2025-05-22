@@ -1,0 +1,50 @@
+<div class="dialog-container pokerole">
+  <ol class="items-list">
+    <ul class="inner">
+      <li class="item tools header flexrow">
+        <div class="item-prop" data-tooltip="Health">
+          <i class="fas fa-heart"></i> {{system.hp.value}} /  {{system.hp.max}}
+        </div>
+        <div class="item-prop" data-tooltip="Will">
+          <i class="fas fa-fire"></i> {{system.will.value}} /  {{system.will.max}}
+        </div>
+      </li>
+    </ul>
+    <ul class="inner">
+      {{#each quickMoves as |item id|}}
+      <li class="item flexrow {{#if item.usable}}rollable{{/if}} {{#if item.data.system.usedInRound}}used-in-round{{/if}} {{#unless item.usable}}translucent{{/unless}}" data-item-id="{{item.data._id}}" data-roll-type="item">
+        <div class="item-name flexrow">
+          <div class="item-image move-image">
+            <img src="{{item.data.img}}" title="{{itemdata.data.name}}" width="30" height="30"/>
+          </div>
+          <div class="item-name">
+          <h4 {{#if item.data.system.effect}}data-tooltip="{{item.data.system.effect}}"{{/if}}
+            {{#if item.disabled}}class="strikethrough"{{/if}}>{{item.data.name}}</h4>
+          </div>
+          <div class="item-prop small"><i class="fas fa-crosshairs-simple"></i> {{item.accuracyPool}}</div>
+          
+          <div class="item-prop small">
+            {{#if item.dmgPool}}<i class="fas fa-sword"></i> {{item.dmgPool}}{{/if}}
+          </div>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+    <ul class="inner">
+      <li class="item tools footer flexrow">
+        <div class="item-prop" data-tooltip="Actions">
+          {{usedActions}}/5
+        </div>
+        <div class="item-prop" data-tooltip="Successes required">
+          <i class="fas fa-crosshairs-simple"></i> {{system.actionCount.value}}
+        </div>
+        <div class="item-prop {{#unless system.canClash}}used-in-round{{/unless}}" data-tooltip="Clash">
+          Clash
+        </div>
+        <div class="item-prop {{#unless system.canEvade}}used-in-round{{/unless}}" data-tooltip="Evade">
+          Evade
+        </div>
+      </li>
+    </ul>
+  </ol>
+</div>

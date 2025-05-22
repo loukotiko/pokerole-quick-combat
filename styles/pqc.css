@@ -1,0 +1,101 @@
+#pokerole-quick-combat-dialog
+  .pokerole
+  .items-list
+  .item.used-in-round
+  .item-name
+  .item-image {
+  position: relative;
+}
+
+#pokerole-quick-combat-dialog
+  .pokerole
+  .items-list
+  .item.used-in-round
+  .item-name
+  .item-image::before {
+  content: "\f00d";
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 900;
+  color: red;
+  position: absolute;
+  font-size: 32px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list .item .item-prop.small {
+  max-width: 30px;
+}
+
+#pokerole-quick-combat-dialog {
+  min-height: auto;
+  max-height: auto;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list .item-prop {
+  border: 0;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list .item,
+#pokerole-quick-combat-dialog .pokerole .items-list .item .item-name {
+  color: white;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list .item {
+  border: 0;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list ul.inner {
+  padding: 0;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list ul.inner .tools {
+  text-align: center;
+  justify-content: stretch;
+  padding: 5px 0;
+}
+
+#pokerole-quick-combat-dialog
+  .pokerole
+  .items-list
+  ul.inner
+  .tools
+  .item-prop.used-in-round {
+  opacity: 0.2;
+}
+
+#pokerole-quick-combat-dialog
+  .pokerole
+  .items-list
+  ul.inner
+  .tools.header
+  .item-prop {
+  font-size: 16px;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list ul.inner .tools.header {
+  border-bottom: 1px solid black;
+}
+
+#pokerole-quick-combat-dialog .pokerole .items-list ul.inner .tools.footer {
+  border-top: 1px solid black;
+}
+
+#pokerole-quick-combat-dialog
+  .pokerole
+  .items-list
+  ul.inner
+  .tools
+  .item-prop.small {
+  max-width: 40px;
+  flex: 0.5;
+}
+
+#pokerole-quick-combat-dialog
+  .pokerole
+  .items-list
+  ul.inner
+  .item.rollable:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

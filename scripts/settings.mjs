@@ -1,7 +1,7 @@
-import { Poryphone } from "./utils.mjs";
+import { PQC } from "./utils.mjs";
 
 export async function setupSettings() {
-  await game.settings.register(Poryphone.ID, Poryphone.SETTINGS.DEBUG, {
+  await game.settings.register(PQC.ID, PQC.SETTINGS.DEBUG, {
     name: "PORYPHONE.SETTINGS.DEBUG.NAME", // can also be an i18n key
     hint: "PORYPHONE.SETTINGS.DEBUG.HINT", // can also be an i18n key
     scope: "world", // "world" = sync to db, "client" = local storage
