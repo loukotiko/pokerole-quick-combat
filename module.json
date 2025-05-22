@@ -1,6 +1,7 @@
 {
   "id": "pokerole-quick-combat",
   "title": "Pokérole Quick Combat",
+  "description": "A Pokérole module for combat to have quick access to moves.",
   "version": "#{VERSION}#",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
@@ -29,19 +30,15 @@
       {
         "id": "pokerole",
         "type": "system",
-        "compatibility": {}
+        "manifest": "https://raw.githubusercontent.com/Pokerole-Software-Development/foundry-pokerole/main/system.json",
+        "compatibility": {
+          "verified": "0.4.2"
+        }
       }
     ]
   },
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
-  "license": "LICENSE",
-  "readme": "README.md",
-  "media": [
-    {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
-    }
-  ]
+  "readme": "readme.md"
 }
