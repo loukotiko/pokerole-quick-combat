@@ -26,11 +26,6 @@ export class PQC {
   static intervalRefresh;
   static initializeTemplatesAndDialogs() {
     PQC.dialog = new PQCDialog();
-    /*    if (PQC.intervalRefresh) PQC.intervalRefresh?.clearInterval();
-    PQC.intervalRefresh = setInterval(
-      () => PQC.token && PQC.dialog.render(true),
-      500
-    );*/
     loadTemplates([PQC.TEMPLATES.BAR]);
   }
 

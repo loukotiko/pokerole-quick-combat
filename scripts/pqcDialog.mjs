@@ -1,10 +1,10 @@
 import { PQC } from "./utils.mjs";
 
 export default class PQCDialog extends FormApplication {
-  static token;
-  constructor() {
-    super();
+  constructor(object) {
+    super(object);
   }
+
   static get defaultOptions() {
     const defaults = super.defaultOptions;
     const overrides = {
@@ -49,5 +49,14 @@ export default class PQCDialog extends FormApplication {
         ".rollable",
         PQC.token?.actor.sheet._onRoll.bind(PQC.token?.actor.sheet)
       );
+  }
+
+  /** @inheritDoc */
+  async _render(force, options = {}) {
+    // Parent class rendering workflow
+    await super._render(force, options);
+
+    // Register the active Application with the referenced Documents
+    if (PQC.token) PQC.token.actor.apps[this.appId] = this;
   }
 }
