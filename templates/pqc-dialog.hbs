@@ -42,10 +42,10 @@
         <div class="item-prop" data-tooltip="Successes required">
           <i class="fas fa-crosshairs-simple"></i> {{system.actionCount.value}}
         </div>
-        <div class="item-prop {{#unless system.canClash}}used-in-round{{/unless}}" data-tooltip="Clash">
+        <div class="item-prop {{#unless system.canClash}}used-in-round{{/unless}}"{{#unless system.canClash}} data-tooltip="Clash used this round"{{/unless}}>
           Clash
         </div>
-        <div class="item-prop {{#unless system.canEvade}}used-in-round{{/unless}}" data-tooltip="Evade">
+        <div class="item-prop {{#unless system.canEvade}}used-in-round{{/unless}}"{{#unless system.canEvade}} data-tooltip="Evasion used this round"{{/unless}}>
           Evade
         </div>
       </li>
