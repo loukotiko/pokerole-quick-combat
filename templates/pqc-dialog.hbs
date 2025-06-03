@@ -21,11 +21,15 @@
           <h4 {{#if item.data.system.effect}}data-tooltip="{{item.data.system.effect}}"{{/if}}
             {{#if item.disabled}}class="strikethrough"{{/if}}>{{item.data.name}}</h4>
           </div>
-          <div class="item-prop small"><i class="fas fa-crosshairs-simple"></i> {{item.accuracyPool}}</div>
+          {{#if item.data.system.usedInRound}}
+          <div class="item-prop span"><a class="quick-reset-move" data-item-id="{{item.data._id}}"><i class="fas fa-rotate"></i> Reset</a></div>
+          {{else}}
+          <div class="item-prop small" data-tooltip="Accuracy"><i class="fas fa-crosshairs-simple"></i> {{item.accuracyPool}}</div>
           
-          <div class="item-prop small">
+          <div class="item-prop small" data-tooltip="Damage pool">
             {{#if item.dmgPool}}<i class="fas fa-sword"></i> {{item.dmgPool}}{{/if}}
           </div>
+          {{/if}}
         </div>
       </li>
     {{/each}}

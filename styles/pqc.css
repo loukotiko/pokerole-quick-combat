@@ -28,6 +28,10 @@
   max-width: 30px;
 }
 
+#pokerole-quick-combat-dialog .pokerole .items-list .item .item-prop.span {
+  max-width: 60px;
+}
+
 #pokerole-quick-combat-dialog {
   min-height: auto;
   max-height: auto;

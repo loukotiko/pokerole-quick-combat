@@ -49,6 +49,16 @@ export default class PQCDialog extends FormApplication {
         ".rollable",
         PQC.token?.actor.sheet._onRoll.bind(PQC.token?.actor.sheet)
       );
+    html
+      .off("click", ".quick-reset-move")
+      .on("click", ".quick-reset-move", this._onQuickResetMove);
+  }
+
+  _onQuickResetMove(event) {
+    const actor = PQC.token?.actor;
+    const li = event.currentTarget.closest("li");
+    const item = actor.items.get(li.dataset.itemId);
+    item.update({ "system.usedInRound": !item.system.usedInRound });
   }
 
   /** @inheritDoc */
