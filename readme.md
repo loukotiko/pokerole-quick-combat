@@ -14,3 +14,4 @@ https://github.com/loukotiko/pokerole-quick-combat/releases/latest/download/modu
 - Hides when the token is unselected
 - Active only on controlled tokens
 - Active only when a combat is started and the token is part of the fight
+- Can reset move for successive actions
