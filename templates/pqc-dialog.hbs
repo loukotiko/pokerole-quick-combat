@@ -24,10 +24,10 @@
           {{#if item.data.system.usedInRound}}
           <div class="item-prop span"><a class="quick-reset-move" data-item-id="{{item.data._id}}"><i class="fas fa-rotate"></i> Reset</a></div>
           {{else}}
-          <div class="item-prop small" data-tooltip="Accuracy"><i class="fas fa-crosshairs-simple"></i> {{item.accuracyPool}}</div>
+          <div class="item-prop small" data-tooltip="Accuracy ({{item.data.system.accMod1}}+{{item.data.system.accMod2}})"><i class="fas fa-crosshairs-simple"></i> {{item.accuracyPool}}</div>
           
-          <div class="item-prop small" data-tooltip="Damage pool">
-            {{#if item.dmgPool}}<i class="fas fa-sword"></i> {{item.dmgPool}}{{/if}}
+          <div class="item-prop small" data-tooltip="Damage pool ({{item.data.system.dmgMod}}+{{item.data.system.power}})">
+            {{#if item.dmgPool}}<i class="fas {{#if (eq item.data.system.dmgMod 'strength')}}fa-sword{{/if}}{{#if (eq item.data.system.dmgMod 'special')}}fa-bolt{{/if}}{{#if (eq item.data.system.dmgMod '')}}fa-question{{/if}}"></i> {{item.dmgPool}}{{/if}}
           </div>
           {{/if}}
         </div>
@@ -36,17 +36,19 @@
     </ul>
     <ul class="inner">
       <li class="item tools footer flexrow">
-        <div class="item-prop" data-tooltip="Actions">
+        <div class="item-prop">
+          Actions<br />
           {{usedActions}}/5
         </div>
-        <div class="item-prop" data-tooltip="Successes required">
+        <div class="item-prop" data-tooltip="Required successes">
+          Successes<br />
           <i class="fas fa-crosshairs-simple"></i> {{system.actionCount.value}}
         </div>
         <div class="item-prop {{#unless system.canClash}}used-in-round{{/unless}}"{{#unless system.canClash}} data-tooltip="Clash used this round"{{/unless}}>
-          Clash
+          Clash<br/> <i class="fas fa-sword"></i> {{system.clashPhysical.value}} <i class="fas fa-bolt"></i> {{system.clashSpecial.value}}
         </div>
         <div class="item-prop {{#unless system.canEvade}}used-in-round{{/unless}}"{{#unless system.canEvade}} data-tooltip="Evasion used this round"{{/unless}}>
-          Evade
+          Evade<br/> {{system.evade.value}}
         </div>
       </li>
     </ul>
