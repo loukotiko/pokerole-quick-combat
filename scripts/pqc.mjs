@@ -1,5 +1,6 @@
 import { PQC } from "./utils.mjs";
 import { setupSettings } from "./settings.mjs";
+import "./pqcWill.mjs";
 
 function refresh() {
   PQC.token = canvas.tokens.controlled[0];
@@ -23,6 +24,34 @@ Hooks.once("init", async function () {
 
   PQC.initializeTemplatesAndDialogs();
   PQC.log("Initialized templates and dialogs!");
+
+  // Override game.PokeroleItem _onChatCardAction to add data to messages
+  const defaultOnChatCardAction = game.pokerole.PokeroleItem._onChatCardAction;
+  game.pokerole.PokeroleItem._onChatCardAction = async function (event) {
+    PQC.log("PokeroleItem._onChatCardAction");
+
+    const button = event.currentTarget;
+    const card = button.closest(".chat-card");
+    const action = button.dataset.action;
+    const { actor, token } = await game.pokerole.PokeroleItem._getChatCardActor(
+      card
+    );
+
+    const system = {
+      action,
+      actor,
+      token,
+      ...card.dataset,
+    };
+
+    const defaultChatMessageCreate = ChatMessage.create;
+    ChatMessage.create = function (data) {
+      defaultChatMessageCreate.bind(ChatMessage)({ ...data, system });
+    };
+    await defaultOnChatCardAction.bind(game.pokerole.PokeroleItem)(event);
+    ChatMessage.create = defaultChatMessageCreate;
+    setTimeout(refresh, 200);
+  };
 });
 
 Hooks.on("controlToken", async () => {
