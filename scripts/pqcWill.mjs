@@ -1,5 +1,3 @@
-import { PQC } from "./utils.mjs";
-
 Hooks.on("getChatLogEntryContext", addChatMessageContextOptions);
 
 Hooks.on("renderChatLog", (app, html) => activateListeners(html));
@@ -70,7 +68,7 @@ function _onDiceClick(event) {
   const actor = token.actor || game.actors.get(message.speaker.actor);
   const will = actor.system.will.value;
 
-  const authorizedMessage = message.system.action === "accuracy";
+  const authorizedMessage = ["accuracy"].includes(message.system.action);
   const authorized = authorizedMessage && message.isAuthor;
 
   if (authorized) {
@@ -116,10 +114,7 @@ function updateAccuracyRollMessage(
 
   //  update successes
   const countSuccesses = doc.querySelectorAll(".roll.die.d6.max").length;
-
   const docSuccesses = doc.querySelector("& > b");
-  console.log({ requiredSuccesses, docSuccesses });
-
   docSuccesses.innerText = countSuccesses + " successes";
 
   // update action buttons
@@ -138,7 +133,7 @@ function updateAccuracyRollMessage(
 
     // Unconditional effects
     for (let effect of item.getUnconditionalEffects()) {
-      html += `<button class="chat-action" data-action="applyEffect" data-actor-id="${
+      actionButtonsHtml += `<button class="chat-action" data-action="applyEffect" data-actor-id="${
         actor.id
       }" ${dataTokenUuid} data-effect='${JSON.stringify(
         effect
@@ -149,7 +144,7 @@ function updateAccuracyRollMessage(
 
     // Chance dice rolls
     for (let group of item.getEffectGroupsWithChanceDice()) {
-      html += `<button class="chat-action" data-action="chanceDiceRollEffect" data-actor-id="${
+      actionButtonsHtml += `<button class="chat-action" data-action="chanceDiceRollEffect" data-actor-id="${
         actor.id
       }" ${dataTokenUuid} data-effect-group='${JSON.stringify(
         group
@@ -157,6 +152,8 @@ function updateAccuracyRollMessage(
   ${game.pokerole.PokeroleItem.formatChanceDiceGroup(group)}
 </button>`;
     }
+
+    console.log({ actionButtonsHtml });
 
     doc.querySelector(".action-buttons").innerHTML = actionButtonsHtml;
   }
